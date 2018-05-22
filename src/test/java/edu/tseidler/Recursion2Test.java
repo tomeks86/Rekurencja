@@ -83,4 +83,30 @@ public class Recursion2Test {
     public void shouldSolveSumNoAdj(int start, int[] nums, int target, boolean exptdResponse) {
         assertEquals(recursion2.groupNoAdj(start, nums, target), exptdResponse);
     }
+
+    @DataProvider
+    private static Object[][] groupSum5Data() {
+        return new Object[][]{
+                {0, new int[]{2, 5, 10, 4}, 19, true},
+                {0, new int[]{2, 5, 10, 4}, 17, true},
+                {0, new int[]{2, 5, 10, 4}, 12, false},
+                {0, new int[]{2, 5, 4, 10}, 12, false},
+                {0, new int[]{3, 5, 1}, 4, false},
+                {0, new int[]{3, 5, 1}, 5, true},
+                {0, new int[]{1, 3, 5}, 5, true},
+                {0, new int[]{3, 5, 1}, 9, false},
+                {0, new int[]{2, 5, 10, 4}, 7, false},
+                {0, new int[]{2, 5, 10, 4}, 15, true},
+                {0, new int[]{2, 5, 10, 4}, 11, false},
+                {0, new int[]{1}, 1, true},
+                {0, new int[]{9}, 1, false},
+                {0, new int[]{9}, 0, true},
+                {0, new int[]{}, 0, true},
+        };
+    }
+
+    @Test(dataProvider = "groupSum5Data")
+    public void shouldSolveSum5(int start, int[] nums, int target, boolean exptdResponse) {
+        assertEquals(recursion2.groupSum5(start, nums, target), exptdResponse);
+    }
 }
