@@ -150,4 +150,33 @@ public class Recursion1Test {
     public void shouldCompute7(int number, int exptd) {
         assertEquals(recursion1.count7(number), exptd);
     }
+
+    @DataProvider
+    private static Object[][] count8Data() {
+        return new Object[][] {
+                {8, 1},
+                {818, 2},
+                {8818, 4},
+                {8088, 4},
+                {123, 0},
+                {81238, 2},
+                {88788, 6},
+                {8234, 1},
+                {2348, 1},
+                {23884, 3},
+                {0, 0},
+                {1818188, 5},
+                {8818181, 5},
+                {1080, 1},
+                {188, 3},
+                {88888, 9},
+                {9898, 2},
+                {78, 1},
+        };
+    }
+
+    @Test(dataProvider = "count8Data")
+    public void shouldCompute8(int number, int extd) {
+        assertEquals(recursion1.count8(number), extd);
+    }
 }
