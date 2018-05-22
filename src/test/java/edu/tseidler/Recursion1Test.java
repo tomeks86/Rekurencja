@@ -220,4 +220,26 @@ public class Recursion1Test {
     public void shouldComputeX(String str, int exptd) {
         assertEquals(recursion1.countX(str), exptd);
     }
+
+    @DataProvider
+    private static Object[][] countHiData() {
+        return new Object[][] {
+                {"xxhixx", 1},
+                {"xhixhix", 2},
+                {"hi", 1},
+                {"hihih", 2},
+                {"h", 0},
+                {"", 0},
+                {"ihihihihih", 4},
+                {"ihihihihihi", 5},
+                {"hiAAhi12hi", 3},
+                {"xhixhxihihhhih", 3},
+                {"ship", 1},
+        };
+    }
+
+    @Test(dataProvider = "countHiData")
+    public void shouldComputeHi(String str, int exptd) {
+        assertEquals(recursion1.countHi(str), exptd);
+    }
 }

@@ -78,4 +78,8 @@ public class Recursion1 {
         else
             return str.charAt(str.length() - 1) == 'x' ? 1 + countX(str.substring(0, str.length() - 1)) : countX(str.substring(0, str.length() - 1));
     }
+
+    public int countHi(String str) {
+        return str.lastIndexOf("hi") > -1 ? 1 + countHi(str.substring(0, str.lastIndexOf("hi"))) : 0;
+    }
 }
