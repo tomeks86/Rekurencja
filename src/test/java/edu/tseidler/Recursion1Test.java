@@ -179,4 +179,26 @@ public class Recursion1Test {
     public void shouldCompute8(int number, int extd) {
         assertEquals(recursion1.count8(number), extd);
     }
+
+    @DataProvider
+    private static Object[][] powerNData() {
+        return new Object[][] {
+                {3, 1, 3},
+                {3, 2, 9},
+                {3, 3, 27},
+                {2, 1, 2},
+                {2, 2, 4},
+                {2, 3, 8},
+                {2, 4, 16},
+                {2, 5, 32},
+                {10, 1, 10},
+                {10, 2, 100},
+                {10, 3, 1000},
+        };
+    }
+
+    @Test(dataProvider = "powerNData")
+    public void shouldComputePowerN(int base, int n, int exptd) {
+        assertEquals(recursion1.powerN(base, n), exptd);
+    }
 }
