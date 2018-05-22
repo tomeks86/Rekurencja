@@ -201,4 +201,23 @@ public class Recursion1Test {
     public void shouldComputePowerN(int base, int n, int exptd) {
         assertEquals(recursion1.powerN(base, n), exptd);
     }
+
+    @DataProvider
+    private static Object[][] countXData() {
+        return new Object[][] {
+                {"xxhixx", 4},
+                {"xhixhix", 3},
+                {"hi", 0},
+                {"h", 0},
+                {"x", 1},
+                {"", 0},
+                {"hihi", 0},
+                {"hiAAhi12hi", 0},
+        };
+    }
+
+    @Test(dataProvider = "countXData")
+    public void shouldComputeX(String str, int exptd) {
+        assertEquals(recursion1.countX(str), exptd);
+    }
 }
