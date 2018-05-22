@@ -104,4 +104,26 @@ public class Recursion1Test {
     public void shouldComputeTriangles(int rows, int exptd) {
         assertEquals(recursion1.triangle(rows), exptd);
     }
+
+    @DataProvider
+    private static Object[][] sumDigitsData() {
+        return new Object[][] {
+                {126, 9},
+                {49, 13},
+                {12, 3},
+                {10, 1},
+                {1, 1},
+                {0, 0},
+                {730, 10},
+                {1111, 4},
+                {11111, 5},
+                {10110, 3},
+                {235, 10},
+        };
+    }
+
+    @Test(dataProvider = "sumDigitsData")
+    public void shouldComputeSumDigits(int number, int exptd) {
+        assertEquals(recursion1.sumDigits(number), exptd);
+    }
 }
