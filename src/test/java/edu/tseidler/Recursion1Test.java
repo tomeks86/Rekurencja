@@ -384,4 +384,25 @@ public class Recursion1Test {
     public void shouldStarStrings(String input, String exptdOutput) {
         assertEquals(recursion1.allStar(input), exptdOutput);
     }
+
+    @DataProvider
+    private static Object[][] pairStarData() {
+        return new Object[][]{
+                {"hello", "hel*lo"},
+                {"xxyy", "x*xy*y"},
+                {"aaaa", "a*a*a*a"},
+                {"aaab", "a*a*ab"},
+                {"aa", "a*a"},
+                {"a", "a"},
+                {"", ""},
+                {"noadjacent", "noadjacent"},
+                {"abba", "ab*ba"},
+                {"abbba", "ab*b*ba"},
+        };
+    }
+
+    @Test(dataProvider = "pairStarData")
+    public void shouldStarNeighbouring(String input, String exptdOutput) {
+        assertEquals(recursion1.pairStar(input), exptdOutput);
+    }
 }
