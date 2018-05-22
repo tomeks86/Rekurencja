@@ -105,4 +105,17 @@ public class Recursion1 {
                 changePi(str.substring(0, str.lastIndexOf("pi")) + "3.14" + str.substring(str.lastIndexOf("pi") + 2, str.length()), str.lastIndexOf("pi")) :
                 str;
     }
+
+    public String noX(String str) {
+        return noX(str, str.length() - 1);
+    }
+
+    private String noX(String str, int index) {
+        if (index == -1)
+            return str;
+        else
+            return str.charAt(index) == 'x' ?
+                    noX(str.substring(0, index) + str.substring(index + 1, str.length()), --index) :
+                    noX(str, --index);
+    }
 }

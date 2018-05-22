@@ -284,4 +284,21 @@ public class Recursion1Test {
     public void shouldChangePi(String input, String exptdOutput) {
         assertEquals(recursion1.changePi(input), exptdOutput);
     }
+
+    @DataProvider
+    private static Object[][] noXData() {
+        return new Object[][]{
+                {"xaxb", "ab"},
+                {"abc", "abc"},
+                {"xx", ""},
+                {"", ""},
+                {"axxbxx", "ab"},
+                {"Hellox", "Hello"},
+        };
+    }
+
+    @Test(dataProvider = "noXData")
+    public void shouldRemoveX(String input, String exptdOutput) {
+        assertEquals(recursion1.noX(input), exptdOutput);
+    }
 }
