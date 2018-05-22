@@ -109,4 +109,22 @@ public class Recursion2Test {
     public void shouldSolveSum5(int start, int[] nums, int target, boolean exptdResponse) {
         assertEquals(recursion2.groupSum5(start, nums, target), exptdResponse);
     }
+
+    @DataProvider
+    private static Object[][] groupSumClumpData() {
+        return new Object[][]{
+                {0, new int[]{2, 4, 8}, 10, true},
+                {0, new int[]{1, 2, 4, 8, 1}, 14, true},
+                {0, new int[]{2, 4, 4, 8}, 14, false},
+                {0, new int[]{8, 2, 2, 1}, 9, true},
+                {0, new int[]{8, 2, 2, 1}, 11, false},
+                {0, new int[]{1}, 1, true},
+                {0, new int[]{9}, 1, false},
+        };
+    }
+
+    @Test(dataProvider = "groupSumClumpData")
+    public void shouldSolveSumClump(int start, int[] nums, int target, boolean exptdResponse) {
+        assertEquals(recursion2.groupSumClump(start, nums, target), exptdResponse);
+    }
 }

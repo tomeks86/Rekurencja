@@ -37,4 +37,22 @@ public class Recursion2 {
             return groupSum5(start + 1, nums, target) ||
                     groupSum5(start + 1, nums, target - nums[start]);
     }
+
+    public boolean groupSumClump(int start, int[] nums, int target) {
+        if (start >= nums.length)
+            return target == 0;
+        int mult = findSimilar(start, nums);
+        return groupSumClump(start + mult, nums, target) ||
+                groupSumClump(start + mult, nums, target - mult * nums[start]);
+    }
+
+    private int findSimilar(int start, int[] nums) {
+        if (start == nums.length - 1)
+            return 1;
+        int first = nums[start];
+        int mult = 1;
+        while (nums[++start] == first)
+            mult++;
+        return mult;
+    }
 }
