@@ -512,4 +512,32 @@ public class Recursion1Test {
     public void shouldCleanString(String input, String exptdOutput) {
         assertEquals(recursion1.stringClean(input), exptdOutput);
     }
+
+    @DataProvider
+    private static Object[][] countHi2Data() {
+        return new Object[][]{
+                {"ahixhi", 1},
+                {"ahibhi", 2},
+                {"xhixhi", 0},
+                {"hixhi", 1},
+                {"hixhhi", 2},
+                {"hihihi", 3},
+                {"hihihix", 3},
+                {"xhihihix", 2},
+                {"xxhi", 0},
+                {"hixxhi", 1},
+                {"hi", 1},
+                {"xxxx", 0},
+                {"xhix", 0},
+                {"h", 0},
+                {"x", 0},
+                {"", 0},
+                {"Hellohi", 1},
+        };
+    }
+
+    @Test(dataProvider = "countHi2Data")
+    public void shouldCountHiWithoutX(String input, int exptdCount) {
+        assertEquals(recursion1.countHi2(input), exptdCount);
+    }
 }

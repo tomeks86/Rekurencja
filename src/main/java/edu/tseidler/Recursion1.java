@@ -228,4 +228,20 @@ public class Recursion1 {
                     stringClean(str.substring(0, index) + str.substring(index + 1, str.length()), --index) :
                     stringClean(str, --index);
     }
+
+    public int countHi2(String str) {
+        if (str.length() <= 2)
+            return str.equals("hi") ? 1 : 0;
+        else {
+            int hi = str.lastIndexOf("hi");
+            if (hi < 0) return 0;
+            int x = str.substring(0, hi).lastIndexOf("x");
+            if (x > -1) {
+                return hi - 1 == x ?
+                        countHi2(str.substring(0, hi)) :
+                        1 + countHi2(str.substring(0, hi));
+            } else
+                return 1 + countHi2(str.substring(0, hi));
+        }
+    }
 }
