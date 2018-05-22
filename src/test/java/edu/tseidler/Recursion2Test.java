@@ -174,4 +174,23 @@ public class Recursion2Test {
     public void shouldCheckSplittingPossibility(int[] nums, boolean exptdResult) {
         assertEquals(recursion2.splitOdd10(nums), exptdResult);
     }
+
+    @DataProvider
+    private static Object[][] split53Data() {
+        return new Object[][]{
+                {new int[]{1, 1}, true},
+                {new int[]{1, 1, 1}, false},
+                {new int[]{2, 4, 2}, true},
+                {new int[]{2, 2, 2, 1}, false},
+                {new int[]{3, 3, 5, 1}, true},
+                {new int[]{3, 5, 8}, false},
+                {new int[]{2, 4, 6}, true},
+                {new int[]{3, 5, 6, 10, 3, 3}, true},
+        };
+    }
+
+    @Test(dataProvider = "split53Data")
+    public void shouldCheckSplitting53Possibility(int[] nums, boolean exptdResult) {
+        assertEquals(recursion2.split53(nums), exptdResult);
+    }
 }

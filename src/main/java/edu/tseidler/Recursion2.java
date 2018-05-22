@@ -78,4 +78,20 @@ public class Recursion2 {
         return splitOdd10(start + 1, nums, sumLeft + nums[start], sumRight) ||
                 splitOdd10(start + 1, nums, sumLeft, sumRight + nums[start]);
     }
+
+    public boolean split53(int[] nums) {
+        return split53(0, nums, 0, 0);
+    }
+
+    private boolean split53(int start, int[] nums, int sum3, int sum5) {
+        if (start >= nums.length)
+            return sum3 == sum5;
+        if (nums[start] % 5 == 0)
+            return split53(start + 1, nums, sum3, sum5 + nums[start]);
+        else if (nums[start] % 3 == 0)
+            return split53(start + 1, nums, sum3 + nums[start], sum5);
+        else
+            return split53(start + 1, nums, sum3 + nums[start], sum5) ||
+                    split53(start + 1, nums, sum3, sum5 + nums[start]);
+    }
 }
