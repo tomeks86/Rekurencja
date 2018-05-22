@@ -614,4 +614,29 @@ public class Recursion1Test {
     public void shouldCountStr(String input, String subString, int exptdCount) {
         assertEquals(recursion1.strCount(input, subString), exptdCount);
     }
+
+    @DataProvider
+    private static Object[][] strCopiesData() {
+        return new Object[][]{
+                {"catcowcat", "cat", 2, true},
+                {"catcowcat", "cow", 2, false},
+                {"catcowcat", "cow", 1, true},
+                {"iiijjj", "i", 3, true},
+                {"iiijjj", "i", 4, false},
+                {"iiijjj", "ii", 2, true},
+                {"iiijjj", "ii", 3, false},
+                {"iiijjj", "x", 3, false},
+                {"iiijjj", "x", 0, true},
+                {"iiiiij", "iii", 3, true},
+                {"iiiiij", "iii", 4, false},
+                {"ijiiiiij", "iiii", 2, true},
+                {"ijiiiiij", "iiii", 3, false},
+                {"dogcatdogcat", "dog", 2, true},
+        };
+    }
+
+    @Test(dataProvider = "strCopiesData")
+    public void shouldDecideOfCopiesCountCorrectness(String input, String sub, int count, boolean exptdResult) {
+        assertEquals(recursion1.strCopies(input, sub, count), exptdResult);
+    }
 }

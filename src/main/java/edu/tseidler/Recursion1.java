@@ -268,4 +268,15 @@ public class Recursion1 {
                     1 + strCount(str.substring(0, str.lastIndexOf(sub)), sub) :
                     0;
     }
+
+    public boolean strCopies(String str, String sub, int n) {
+        if (str.length() < sub.length())
+            return n == 0;
+        else {
+            int lastSub = str.lastIndexOf(sub);
+            return lastSub > -1 ?
+                    strCopies(str.substring(0, lastSub + sub.length() - 1), sub, --n) :
+                    strCopies("", sub, n);
+        }
+    }
 }
