@@ -60,4 +60,27 @@ public class Recursion2Test {
     public void shouldSolveSum6(int start, int[] nums, int target, boolean exptdResponse) {
         assertEquals(recursion2.groupSum6(start, nums, target), exptdResponse);
     }
+
+    @DataProvider
+    private static Object[][] groupNoAdjData() {
+        return new Object[][]{
+                {0, new int[]{2, 5, 10, 4}, 12, true},
+                {0, new int[]{2, 5, 10, 4}, 14, false},
+                {0, new int[]{2, 5, 10, 4}, 7, false},
+                {0, new int[]{2, 5, 10, 4, 2}, 7, true},
+                {0, new int[]{2, 5, 10, 4}, 9, true},
+                {0, new int[]{10, 2, 2, 3, 3}, 15, true},
+                {0, new int[]{10, 2, 2, 3, 3}, 7, false},
+                {0, new int[]{}, 0, true},
+                {0, new int[]{1}, 1, true},
+                {0, new int[]{9}, 1, false},
+                {0, new int[]{9}, 0, true},
+                {0, new int[]{5, 10, 4, 1}, 11, true},
+        };
+    }
+
+    @Test(dataProvider = "groupNoAdjData")
+    public void shouldSolveSumNoAdj(int start, int[] nums, int target, boolean exptdResponse) {
+        assertEquals(recursion2.groupNoAdj(start, nums, target), exptdResponse);
+    }
 }
