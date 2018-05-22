@@ -24,7 +24,27 @@ public class Recursion1Test {
     }
 
     @Test(dataProvider = "factorialData")
-    public void shouldComputeFactorial(int inp, int exptd) {
-        assertEquals(recursion1.factorial(inp), exptd);
+    public void shouldComputeFactorial(int number, int exptd) {
+        assertEquals(recursion1.factorial(number), exptd);
+    }
+
+    @DataProvider
+    private static Object[][] bunnyEarsData() {
+        return new Object[][] {
+                {0, 0},
+                {1, 2},
+                {2, 4},
+                {3, 6},
+                {4, 8},
+                {5, 10},
+                {12, 24},
+                {50, 100},
+                {234, 468},
+        };
+    }
+
+    @Test(dataProvider = "bunnyEarsData")
+    public void shouldComputeBunnyEars(int bunnies, int exptd) {
+        assertEquals(recursion1.bunnyEars(bunnies), exptd);
     }
 }
