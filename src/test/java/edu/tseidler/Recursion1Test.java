@@ -66,4 +66,23 @@ public class Recursion1Test {
     public void shouldComputeFibonacci(int number, int exptd) {
         assertEquals(recursion1.fibonacci(number), exptd);
     }
+
+    @DataProvider
+    private static Object[][] bunnyEars2Data() {
+        return new Object[][] {
+                {0, 0},
+                {1, 2},
+                {2, 5},
+                {3, 7},
+                {4, 10},
+                {5, 12},
+                {6, 15},
+                {10, 25},
+        };
+    }
+
+    @Test(dataProvider = "bunnyEars2Data")
+    public void shouldComputeBunnyEars2(int bunnies, int exptd) {
+        assertEquals(recursion1.bunnyEars2(bunnies), exptd);
+    }
 }
