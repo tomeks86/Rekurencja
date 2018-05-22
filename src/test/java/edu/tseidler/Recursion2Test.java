@@ -38,11 +38,26 @@ public class Recursion2Test {
                 {0, new int[]{5, 6, 2}, 8, true},
                 {0, new int[]{5, 6, 2}, 9, false},
                 {0, new int[]{5, 6, 2}, 7, false},
+                {0, new int[]{1}, 1, true},
+                {0, new int[]{9}, 1, false},
+                {0, new int[]{}, 0, true},
+                {0, new int[]{3, 2, 4, 6}, 8, true},
+                {0, new int[]{6, 2, 4, 3}, 8, true},
+                {0, new int[]{5, 2, 4, 6}, 9, false},
+                {0, new int[]{6, 2, 4, 5}, 9, false},
+                {0, new int[]{3, 2, 4, 6}, 3, false},
+                {0, new int[]{1, 6, 2, 6, 4}, 12, true},
+                {0, new int[]{1, 6, 2, 6, 4}, 13, true},
+                {0, new int[]{1, 6, 2, 6, 4}, 4, false},
+                {0, new int[]{1, 6, 2, 6, 4}, 9, false},
+                {0, new int[]{1, 6, 2, 6, 5}, 14, true},
+                {0, new int[]{1, 6, 2, 6, 5}, 15, true},
+                {0, new int[]{1, 6, 2, 6, 5}, 16, false},
         };
     }
 
     @Test(dataProvider = "groupSum6Data")
     public void shouldSolveSum6(int start, int[] nums, int target, boolean exptdResponse) {
-//        assertEquals(recursion2.groupSum6(start, nums, target), exptdResponse);
+        assertEquals(recursion2.groupSum6(start, nums, target), exptdResponse);
     }
 }

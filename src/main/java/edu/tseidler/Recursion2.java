@@ -10,6 +10,11 @@ public class Recursion2 {
     }
 
     public boolean groupSum6(int start, int[] nums, int target) {
-        return false;
+        if (start >= nums.length)
+            return target == 0;
+        return nums[start] == 6 ?
+                groupSum6(start + 1, nums, target - nums[start]) :
+                groupSum6(start + 1, nums, target - nums[start]) ||
+                        groupSum6(start + 1, nums, target);
     }
 }
