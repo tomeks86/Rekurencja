@@ -589,4 +589,29 @@ public class Recursion1Test {
     public void shouldFindNestedParenthesis(String input, boolean exptdResult) {
         assertEquals(recursion1.nestParen(input), exptdResult);
     }
+
+    @DataProvider
+    private static Object[][] strCountData() {
+        return new Object[][]{
+                {"catcowcat", "cat", 2},
+                {"catcowcat", "cow", 1},
+                {"catcowcat", "dog", 0},
+                {"cacatcowcat", "cat", 2},
+                {"xyx", "x", 2},
+                {"iiiijj", "i", 4},
+                {"iiiijj", "ii", 2},
+                {"iiiijj", "iii", 1},
+                {"iiiijj", "j", 2},
+                {"iiiijj", "jj", 1},
+                {"aaabababab", "ab", 4},
+                {"aaabababab", "aa", 1},
+                {"aaabababab", "a", 6},
+                {"aaabababab", "b", 4},
+        };
+    }
+
+    @Test(dataProvider = "strCountData")
+    public void shouldCountStr(String input, String subString, int exptdCount) {
+        assertEquals(recursion1.strCount(input, subString), exptdCount);
+    }
 }

@@ -259,4 +259,13 @@ public class Recursion1 {
         if (str.isEmpty()) return true;
         return (str.charAt(0) == '(' && str.charAt(str.length() - 1) == ')') && nestParen(str.substring(1, str.length() - 1));
     }
+
+    public int strCount(String str, String sub) {
+        if (str.length() < sub.length())
+            return 0;
+        else
+            return str.lastIndexOf(sub) > -1 ?
+                    1 + strCount(str.substring(0, str.lastIndexOf(sub)), sub) :
+                    0;
+    }
 }
