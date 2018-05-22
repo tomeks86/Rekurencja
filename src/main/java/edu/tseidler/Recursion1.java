@@ -206,4 +206,13 @@ public class Recursion1 {
                 return 0;
         }
     }
+
+    public int count11(String str) {
+        if (str.length() < 2)
+            return 0;
+        else {
+            int pos11 = str.lastIndexOf("11");
+            return pos11 > -1 ? 1 + count11(str.substring(0, pos11)) : 0;
+        }
+    }
 }

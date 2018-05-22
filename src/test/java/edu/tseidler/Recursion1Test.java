@@ -473,4 +473,26 @@ public class Recursion1Test {
     public void shouldCountABAandABC(String input, int exptdCount) {
         assertEquals(recursion1.countAbc(input), exptdCount);
     }
+
+    @DataProvider
+    private static Object[][] count11Data() {
+        return new Object[][]{
+                {"11abc11", 2},
+                {"abc11x11x11", 3},
+                {"111", 1},
+                {"1111", 2},
+                {"1", 0},
+                {"", 0},
+                {"hi", 0},
+                {"11x111x1111", 4},
+                {"1x111", 1},
+                {"1Hello1", 0},
+                {"Hello", 0},
+        };
+    }
+
+    @Test(dataProvider = "count11Data")
+    public void shouldCount11(String input, int exptdCount) {
+        assertEquals(recursion1.count11(input), exptdCount);
+    }
 }
