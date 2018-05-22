@@ -405,4 +405,27 @@ public class Recursion1Test {
     public void shouldStarNeighbouring(String input, String exptdOutput) {
         assertEquals(recursion1.pairStar(input), exptdOutput);
     }
+
+    @DataProvider
+    public static Object[][] endXData() {
+        return new Object[][]{
+                {"xxre", "rexx"},
+                {"xxhixx", "hixxxx"},
+                {"xhixhix", "hihixxx"},
+                {"hiy", "hiy"},
+                {"h", "h"},
+                {"x", "x"},
+                {"xx", "xx"},
+                {"", ""},
+                {"bxx", "bxx"},
+                {"bxax", "baxx"},
+                {"axaxax", "aaaxxx"},
+                {"xxhxi", "hixxx"},
+        };
+    }
+
+    @Test(dataProvider = "endXData")
+    public void shouldMoveXsToTheEnd(String input, String exptdOutput) {
+        assertEquals(recursion1.endX(input), exptdOutput);
+    }
 }

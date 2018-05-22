@@ -165,4 +165,17 @@ public class Recursion1 {
                     pairStar(str.substring(0, index) + '*' + str.substring(index, str.length()), --index) :
                     pairStar(str, --index);
     }
+
+    public String endX(String str) {
+        return endX(str, str.length() - 1);
+    }
+
+    private String endX(String str, int index) {
+        if (index == -1)
+            return str;
+        else
+            return str.charAt(index) == 'x' ?
+                    endX(str.substring(0, index) + str.substring(index + 1, str.length()) + 'x', --index) :
+                    endX(str, --index);
+    }
 }
