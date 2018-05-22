@@ -10,7 +10,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] factorialData() {
-        return new Object[][] {
+        return new Object[][]{
                 {1, 1},
                 {2, 2},
                 {3, 6},
@@ -30,7 +30,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] bunnyEarsData() {
-        return new Object[][] {
+        return new Object[][]{
                 {0, 0},
                 {1, 2},
                 {2, 4},
@@ -50,7 +50,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] fibonacciData() {
-        return new Object[][] {
+        return new Object[][]{
                 {0, 0},
                 {1, 1},
                 {2, 1},
@@ -69,7 +69,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] bunnyEars2Data() {
-        return new Object[][] {
+        return new Object[][]{
                 {0, 0},
                 {1, 2},
                 {2, 5},
@@ -88,7 +88,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] triangleData() {
-        return new Object[][] {
+        return new Object[][]{
                 {0, 0},
                 {1, 1},
                 {2, 3},
@@ -107,7 +107,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] sumDigitsData() {
-        return new Object[][] {
+        return new Object[][]{
                 {126, 9},
                 {49, 13},
                 {12, 3},
@@ -129,7 +129,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] count7Data() {
-        return new Object[][] {
+        return new Object[][]{
                 {717, 2},
                 {7, 1},
                 {123, 0},
@@ -153,7 +153,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] count8Data() {
-        return new Object[][] {
+        return new Object[][]{
                 {8, 1},
                 {818, 2},
                 {8818, 4},
@@ -182,7 +182,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] powerNData() {
-        return new Object[][] {
+        return new Object[][]{
                 {3, 1, 3},
                 {3, 2, 9},
                 {3, 3, 27},
@@ -204,7 +204,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] countXData() {
-        return new Object[][] {
+        return new Object[][]{
                 {"xxhixx", 4},
                 {"xhixhix", 3},
                 {"hi", 0},
@@ -223,7 +223,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] countHiData() {
-        return new Object[][] {
+        return new Object[][]{
                 {"xxhixx", 1},
                 {"xhixhix", 2},
                 {"hi", 1},
@@ -245,7 +245,7 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] changeXYData() {
-        return new Object[][] {
+        return new Object[][]{
                 {"codex", "codey"},
                 {"xxhixx", "yyhiyy"},
                 {"xhixhix", "yhiyhiy"},
@@ -262,5 +262,26 @@ public class Recursion1Test {
     @Test(dataProvider = "changeXYData")
     public void shouldReplaceXY(String input, String exptdOutput) {
         assertEquals(recursion1.changeXY(input), exptdOutput);
+    }
+
+    @DataProvider
+    private static Object[][] changePiData() {
+        return new Object[][]{
+                {"xpix", "x3.14x"},
+                {"pipi", "3.143.14"},
+                {"pip", "3.14p"},
+                {"pi", "3.14"},
+                {"hip", "hip"},
+                {"p", "p"},
+                {"x", "x"},
+                {"", ""},
+                {"pixx", "3.14xx"},
+                {"xyzzy", "xyzzy"},
+        };
+    }
+
+    @Test(dataProvider = "changePiData")
+    public void shouldChangePi(String input, String exptdOutput) {
+        assertEquals(recursion1.changePi(input), exptdOutput);
     }
 }

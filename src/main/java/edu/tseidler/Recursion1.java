@@ -96,4 +96,13 @@ public class Recursion1 {
                     changeXY(str, index - 1);
     }
 
+    public String changePi(String str) {
+        return changePi(str, str.length() - 1);
+    }
+
+    private String changePi(String str, int index) {
+        return str.lastIndexOf("pi") > -1 ?
+                changePi(str.substring(0, str.lastIndexOf("pi")) + "3.14" + str.substring(str.lastIndexOf("pi") + 2, str.length()), str.lastIndexOf("pi")) :
+                str;
+    }
 }
