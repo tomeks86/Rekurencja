@@ -563,4 +563,30 @@ public class Recursion1Test {
     public void shouldFindBracketed(String input, String exptdOutput) {
         assertEquals(recursion1.parenBit(input), exptdOutput);
     }
+
+    @DataProvider
+    private static Object[][] nestParenData() {
+        return new Object[][]{
+                {"(())", true},
+                {"((()))", true},
+                {"(((x))", false},
+                {"((())", false},
+                {"((()()", false},
+                {"()", true},
+                {"", true},
+                {"(yy)", false},
+                {"(())", true},
+                {"(((y))", false},
+                {"((y)))", false},
+                {"((()))", true},
+                {"(())))", false},
+                {"((yy())))", false},
+                {"(((())))", true},
+        };
+    }
+
+    @Test(dataProvider = "nestParenData")
+    public void shouldFindNestedParenthesis(String input, boolean exptdResult) {
+        assertEquals(recursion1.nestParen(input), exptdResult);
+    }
 }

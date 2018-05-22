@@ -254,4 +254,9 @@ public class Recursion1 {
             str = parenBit(str.substring(1, str.length()));
         return str;
     }
+
+    public boolean nestParen(String str) {
+        if (str.isEmpty()) return true;
+        return (str.charAt(0) == '(' && str.charAt(str.length() - 1) == ')') && nestParen(str.substring(1, str.length() - 1));
+    }
 }
