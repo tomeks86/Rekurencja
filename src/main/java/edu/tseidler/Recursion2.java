@@ -66,4 +66,16 @@ public class Recursion2 {
         return splitArray(start + 1, nums, sumLeft + nums[start], sumRight) ||
                 splitArray(start + 1, nums, sumLeft, sumRight + nums[start]);
     }
+
+    public boolean splitOdd10(int[] nums) {
+        return splitOdd10(0, nums, 0, 0);
+    }
+
+    private boolean splitOdd10(int start, int[] nums, int sumLeft, int sumRight) {
+        if (start >= nums.length)
+            return (sumLeft % 10 == 0 && sumRight % 2 == 1) ||
+                    (sumRight % 10 == 0 && sumLeft % 2 == 1);
+        return splitOdd10(start + 1, nums, sumLeft + nums[start], sumRight) ||
+                splitOdd10(start + 1, nums, sumLeft, sumRight + nums[start]);
+    }
 }

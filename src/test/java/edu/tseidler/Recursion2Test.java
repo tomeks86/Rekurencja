@@ -151,4 +151,27 @@ public class Recursion2Test {
     public void shouldCheckArraySplittingPossibility(int[] nums, boolean exptdResponse) {
         assertEquals(recursion2.splitArray(nums), exptdResponse);
     }
+
+    @DataProvider
+    private static Object[][] splitOdd10Data() {
+        return new Object[][]{
+                {new int[]{5, 5, 5}, true},
+                {new int[]{5, 5, 6}, false},
+                {new int[]{5, 5, 6, 1}, true},
+                {new int[]{6, 5, 5, 1}, true},
+                {new int[]{6, 5, 5, 1, 10}, true},
+                {new int[]{6, 5, 5, 5, 1}, false},
+                {new int[]{1}, true},
+                {new int[]{}, false},
+                {new int[]{10, 7, 5, 5}, true},
+                {new int[]{10, 0, 5, 5}, false},
+                {new int[]{10, 7, 5, 5, 2}, true},
+                {new int[]{10, 7, 5, 5, 1}, false},
+        };
+    }
+
+    @Test(dataProvider = "splitOdd10Data")
+    public void shouldCheckSplittingPossibility(int[] nums, boolean exptdResult) {
+        assertEquals(recursion2.splitOdd10(nums), exptdResult);
+    }
 }
