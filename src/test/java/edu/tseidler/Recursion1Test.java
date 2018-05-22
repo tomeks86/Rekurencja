@@ -85,4 +85,23 @@ public class Recursion1Test {
     public void shouldComputeBunnyEars2(int bunnies, int exptd) {
         assertEquals(recursion1.bunnyEars2(bunnies), exptd);
     }
+
+    @DataProvider
+    private static Object[][] triangleData() {
+        return new Object[][] {
+                {0, 0},
+                {1, 1},
+                {2, 3},
+                {3, 6},
+                {4, 10},
+                {5, 15},
+                {6, 21},
+                {7, 28},
+        };
+    }
+
+    @Test(dataProvider = "triangleData")
+    public void shouldComputeTriangles(int rows, int exptd) {
+        assertEquals(recursion1.triangle(rows), exptd);
+    }
 }

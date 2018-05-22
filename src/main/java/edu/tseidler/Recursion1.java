@@ -33,4 +33,12 @@ public class Recursion1 {
             return 3 + bunnyEars2(--bunnies);
     }
 
+    public int triangle(int rows) {
+        if (rows == 0)
+            return 0;
+        else
+            return rows + triangle(--rows);
+    }
+
+
 }
