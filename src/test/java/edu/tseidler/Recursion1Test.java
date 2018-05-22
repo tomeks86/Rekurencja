@@ -126,4 +126,28 @@ public class Recursion1Test {
     public void shouldComputeSumDigits(int number, int exptd) {
         assertEquals(recursion1.sumDigits(number), exptd);
     }
+
+    @DataProvider
+    private static Object[][] count7Data() {
+        return new Object[][] {
+                {717, 2},
+                {7, 1},
+                {123, 0},
+                {77, 2},
+                {7123, 1},
+                {771237, 3},
+                {771737, 4},
+                {47571, 2},
+                {777777, 6},
+                {70701277, 4},
+                {777576197, 5},
+                {99999, 0},
+                {99799, 1},
+        };
+    }
+
+    @Test(dataProvider = "count7Data")
+    public void shouldCompute7(int number, int exptd) {
+        assertEquals(recursion1.count7(number), exptd);
+    }
 }

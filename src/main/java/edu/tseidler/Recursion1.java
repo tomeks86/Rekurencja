@@ -47,4 +47,11 @@ public class Recursion1 {
             return n % 10 + sumDigits(n / 10);
     }
 
+    public int count7(int n) {
+        if (n == 0)
+            return 0;
+        else
+            return (n % 10 == 7) ? 1 + count7(n / 10) : 0 + count7(n / 10);
+    }
+
 }
