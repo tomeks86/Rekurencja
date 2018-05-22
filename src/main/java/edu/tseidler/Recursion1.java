@@ -118,4 +118,11 @@ public class Recursion1 {
                     noX(str.substring(0, index) + str.substring(index + 1, str.length()), --index) :
                     noX(str, --index);
     }
+
+    public boolean array6(int[] nums, int index) {
+        if (index == nums.length)
+            return false;
+        else
+            return nums[index] == 6 ? true : array6(nums, ++index);
+    }
 }

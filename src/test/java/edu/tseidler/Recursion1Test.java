@@ -301,4 +301,23 @@ public class Recursion1Test {
     public void shouldRemoveX(String input, String exptdOutput) {
         assertEquals(recursion1.noX(input), exptdOutput);
     }
+
+    @DataProvider
+    private static Object[][] array6Data() {
+        return new Object[][] {
+                {new int[] {1, 6, 4}, 0, true},
+                {new int[] {1, 4}, 0, false},
+                {new int[] {6}, 0, true},
+                {new int[] {}, 0, false},
+                {new int[] {6, 2, 2}, 0, true},
+                {new int[] {2, 5}, 0, false},
+                {new int[] {1, 9, 4, 6, 6}, 0, true},
+                {new int[] {2, 5, 6}, 0, true},
+        };
+    }
+
+    @Test(dataProvider = "array6Data")
+    public void shouldTestFor6Existence(int[] nums, int index, boolean exptdResult) {
+        assertEquals(recursion1.array6(nums, index), exptdResult);
+    }
 }
