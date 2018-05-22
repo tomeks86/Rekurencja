@@ -55,4 +55,15 @@ public class Recursion2 {
             mult++;
         return mult;
     }
+
+    public boolean splitArray(int[] nums) {
+        return splitArray(0, nums, 0, 0);
+    }
+
+    private boolean splitArray(int start, int[] nums, int sumLeft, int sumRight) {
+        if (start >= nums.length)
+            return sumLeft == sumRight;
+        return splitArray(start + 1, nums, sumLeft + nums[start], sumRight) ||
+                splitArray(start + 1, nums, sumLeft, sumRight + nums[start]);
+    }
 }

@@ -127,4 +127,28 @@ public class Recursion2Test {
     public void shouldSolveSumClump(int start, int[] nums, int target, boolean exptdResponse) {
         assertEquals(recursion2.groupSumClump(start, nums, target), exptdResponse);
     }
+
+    @DataProvider
+    private static Object[][] splitArrayData() {
+        return new Object[][]{
+                {new int[]{2, 2}, true},
+                {new int[]{2, 3}, false},
+                {new int[]{5, 2, 3}, true},
+                {new int[]{5, 2, 2}, false},
+                {new int[]{1, 1, 1, 1, 1, 1}, true},
+                {new int[]{1, 1, 1, 1, 1}, false},
+                {new int[]{}, true},
+                {new int[]{1}, false},
+                {new int[]{3, 5}, false},
+                {new int[]{5, 3, 2}, true},
+                {new int[]{2, 2, 10, 10, 1, 1}, true},
+                {new int[]{1, 2, 2, 10, 10, 1, 1}, false},
+                {new int[]{1, 2, 3, 10, 10, 1, 1}, true},
+        };
+    }
+
+    @Test(dataProvider = "splitArrayData")
+    public void shouldCheckArraySplittingPossibility(int[] nums, boolean exptdResponse) {
+        assertEquals(recursion2.splitArray(nums), exptdResponse);
+    }
 }
