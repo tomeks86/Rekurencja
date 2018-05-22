@@ -141,4 +141,15 @@ public class Recursion1 {
         else
             return nums[index] * 10 == nums[index + 1] || array220(nums, ++index);
     }
+
+    public String allStar(String str) {
+        return allStar(str, str.length() - 1);
+    }
+
+    private String allStar(String str, int index) {
+        if (index <= 0)
+            return str;
+        else
+            return allStar(str.substring(0, index) + '*' + str.substring(index, str.length()), --index);
+    }
 }

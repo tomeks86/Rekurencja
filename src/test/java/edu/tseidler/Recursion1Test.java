@@ -365,4 +365,23 @@ public class Recursion1Test {
     public void shouldCountArray220(int[] nums, int index, boolean exptdResult) {
         assertEquals(recursion1.array220(nums, index), exptdResult);
     }
+
+    @DataProvider
+    private static Object[][] allStarData() {
+        return new Object[][]{
+                {"hello", "h*e*l*l*o"},
+                {"abc", "a*b*c"},
+                {"ab", "a*b"},
+                {"a", "a"},
+                {"", ""},
+                {"3.14", "3*.*1*4"},
+                {"Chocolate", "C*h*o*c*o*l*a*t*e"},
+                {"1234", "1*2*3*4"},
+        };
+    }
+
+    @Test(dataProvider = "allStarData")
+    public void shouldStarStrings(String input, String exptdOutput) {
+        assertEquals(recursion1.allStar(input), exptdOutput);
+    }
 }
