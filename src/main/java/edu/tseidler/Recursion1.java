@@ -215,4 +215,17 @@ public class Recursion1 {
             return pos11 > -1 ? 1 + count11(str.substring(0, pos11)) : 0;
         }
     }
+
+    public String stringClean(String str) {
+        return stringClean(str, str.length() - 1);
+    }
+
+    private String stringClean(String str, int index) {
+        if (index <= 0)
+            return str;
+        else
+            return str.charAt(index) == str.charAt(index - 1) ?
+                    stringClean(str.substring(0, index) + str.substring(index + 1, str.length()), --index) :
+                    stringClean(str, --index);
+    }
 }

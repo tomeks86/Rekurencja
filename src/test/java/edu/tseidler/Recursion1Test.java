@@ -495,4 +495,21 @@ public class Recursion1Test {
     public void shouldCount11(String input, int exptdCount) {
         assertEquals(recursion1.count11(input), exptdCount);
     }
+
+    @DataProvider
+    private static Object[][] stringCleanData() {
+        return new Object[][]{
+                {"yyzzza", "yza"},
+                {"abbbcdd", "abcd"},
+                {"Hello", "Helo"},
+                {"XXabcYY", "XabcY"},
+                {"112ab445", "12ab45"},
+                {"Hello Bookkeeper", "Helo Bokeper"},
+        };
+    }
+
+    @Test(dataProvider = "stringCleanData")
+    public void shouldCleanString(String input, String exptdOutput) {
+        assertEquals(recursion1.stringClean(input), exptdOutput);
+    }
 }
