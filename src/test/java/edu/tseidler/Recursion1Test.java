@@ -639,4 +639,29 @@ public class Recursion1Test {
     public void shouldDecideOfCopiesCountCorrectness(String input, String sub, int count, boolean exptdResult) {
         assertEquals(recursion1.strCopies(input, sub, count), exptdResult);
     }
+
+    @DataProvider
+    private static Object[][] strDistData() {
+        return new Object[][]{
+                {"catcowcat", "cat", 9},
+                {"catcowcat", "cow", 3},
+                {"cccatcowcatxx", "cat", 9},
+                {"abccatcowcatcatxyz", "cat", 12},
+                {"xyx", "x", 3},
+                {"xyx", "y", 1},
+                {"xyx", "z", 0},
+                {"z", "z", 1},
+                {"x", "z", 0},
+                {"", "z", 0},
+                {"hiHellohihihi", "hi", 13},
+                {"hiHellohihihi", "hih", 5},
+                {"hiHellohihihi", "o", 1},
+                {"hiHellohihihi", "ll", 2},
+        };
+    }
+
+    @Test(dataProvider = "strDistData")
+    public void shouldFindLengthOfLargestSubstringDelimitedWithSubstring(String input, String substring, int exptdLength) {
+        assertEquals(recursion1.strDist(input, substring), exptdLength);
+    }
 }
