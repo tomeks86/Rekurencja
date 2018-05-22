@@ -428,4 +428,26 @@ public class Recursion1Test {
     public void shouldMoveXsToTheEnd(String input, String exptdOutput) {
         assertEquals(recursion1.endX(input), exptdOutput);
     }
+
+    @DataProvider
+    public static Object[][] countPairsData() {
+        return new Object[][]{
+                {"axa", 1},
+                {"axax", 2},
+                {"axbx", 1},
+                {"hi", 0},
+                {"hihih", 3},
+                {"ihihhh", 3},
+                {"ihjxhh", 0},
+                {"", 0},
+                {"a", 0},
+                {"aa", 0},
+                {"aaa", 1},
+        };
+    }
+
+    @Test(dataProvider = "countPairsData")
+    public void shouldCountPairs(String input, int exptdCount) {
+        assertEquals(recursion1.countPairs(input), exptdCount);
+    }
 }

@@ -178,4 +178,17 @@ public class Recursion1 {
                     endX(str.substring(0, index) + str.substring(index + 1, str.length()) + 'x', --index) :
                     endX(str, --index);
     }
+
+    public int countPairs(String str) {
+        return countPairs(str, str.length() - 1);
+    }
+
+    private int countPairs(String str, int index) {
+        if (index <= 1)
+            return 0;
+        else
+            return str.charAt(index) == str.charAt(index - 2) ?
+                    1 + countPairs(str, --index) :
+                    countPairs(str, --index);
+    }
 }
