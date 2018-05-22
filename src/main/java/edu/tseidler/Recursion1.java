@@ -123,6 +123,15 @@ public class Recursion1 {
         if (index == nums.length)
             return false;
         else
-            return nums[index] == 6 ? true : array6(nums, ++index);
+            return nums[index] == 6 || array6(nums, ++index);
+    }
+
+    public int array11(int[] nums, int index) {
+        if (index == nums.length)
+            return 0;
+        else
+            return nums[index] == 11 ?
+                    1 + array11(nums, ++index) :
+                    array11(nums, ++index);
     }
 }

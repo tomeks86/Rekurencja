@@ -304,20 +304,40 @@ public class Recursion1Test {
 
     @DataProvider
     private static Object[][] array6Data() {
-        return new Object[][] {
-                {new int[] {1, 6, 4}, 0, true},
-                {new int[] {1, 4}, 0, false},
-                {new int[] {6}, 0, true},
-                {new int[] {}, 0, false},
-                {new int[] {6, 2, 2}, 0, true},
-                {new int[] {2, 5}, 0, false},
-                {new int[] {1, 9, 4, 6, 6}, 0, true},
-                {new int[] {2, 5, 6}, 0, true},
+        return new Object[][]{
+                {new int[]{1, 6, 4}, 0, true},
+                {new int[]{1, 4}, 0, false},
+                {new int[]{6}, 0, true},
+                {new int[]{}, 0, false},
+                {new int[]{6, 2, 2}, 0, true},
+                {new int[]{2, 5}, 0, false},
+                {new int[]{1, 9, 4, 6, 6}, 0, true},
+                {new int[]{2, 5, 6}, 0, true},
         };
     }
 
     @Test(dataProvider = "array6Data")
     public void shouldTestFor6Existence(int[] nums, int index, boolean exptdResult) {
         assertEquals(recursion1.array6(nums, index), exptdResult);
+    }
+
+    @DataProvider
+    private static Object[][] array11Data() {
+        return new Object[][]{
+                {new int[]{1, 2, 11}, 0, 1},
+                {new int[]{11, 11}, 0, 2},
+                {new int[]{1, 2, 3, 4}, 0, 0},
+                {new int[]{1, 11, 3, 11, 11}, 0, 3},
+                {new int[]{11}, 0, 1},
+                {new int[]{1}, 0, 0},
+                {new int[]{}, 0, 0},
+                {new int[]{11, 2, 3, 4, 11, 5}, 0, 2},
+                {new int[]{11, 5, 11}, 0, 2},
+        };
+    }
+
+    @Test(dataProvider = "array11Data")
+    public void shouldCount11(int[] nums, int index, int exptdCount) {
+        assertEquals(recursion1.array11(nums, index), exptdCount);
     }
 }
