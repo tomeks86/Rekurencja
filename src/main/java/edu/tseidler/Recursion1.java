@@ -191,4 +191,19 @@ public class Recursion1 {
                     1 + countPairs(str, --index) :
                     countPairs(str, --index);
     }
+
+    public int countAbc(String str) {
+        if (str.length() <= 2)
+            return 0;
+        else {
+            int abc = str.lastIndexOf("abc");
+            int aba = str.lastIndexOf("aba");
+            if (abc > aba) {
+                return 1 + countAbc(str.substring(0, abc + 1));
+            } else if (aba > -1) {
+                return 1 + countAbc(str.substring(0, aba + 1));
+            } else
+                return 0;
+        }
+    }
 }

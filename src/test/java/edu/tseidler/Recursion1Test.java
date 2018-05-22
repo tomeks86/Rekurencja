@@ -450,4 +450,27 @@ public class Recursion1Test {
     public void shouldCountPairs(String input, int exptdCount) {
         assertEquals(recursion1.countPairs(input), exptdCount);
     }
+
+    @DataProvider
+    public static Object[][] countAbcData() {
+        return new Object[][]{
+                {"abc", 1},
+                {"abcxxabc", 2},
+                {"abaxxaba", 2},
+                {"ababc", 2},
+                {"abxbc", 0},
+                {"aaabc", 1},
+                {"hello", 0},
+                {"", 0},
+                {"ab", 0},
+                {"aba", 1},
+                {"aca", 0},
+                {"aaa", 0},
+        };
+    }
+
+    @Test(dataProvider = "countAbcData")
+    public void shouldCountABAandABC(String input, int exptdCount) {
+        assertEquals(recursion1.countAbc(input), exptdCount);
+    }
 }
