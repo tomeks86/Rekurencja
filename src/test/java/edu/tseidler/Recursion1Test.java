@@ -340,4 +340,29 @@ public class Recursion1Test {
     public void shouldCount11(int[] nums, int index, int exptdCount) {
         assertEquals(recursion1.array11(nums, index), exptdCount);
     }
+
+    @DataProvider
+    private static Object[][] array220Data() {
+        return new Object[][]{
+                {new int[]{1, 2, 20}, 0, true},
+                {new int[]{3, 30}, 0, true},
+                {new int[]{3}, 0, false},
+                {new int[]{}, 0, false},
+                {new int[]{3, 3, 30, 4}, 0, true},
+                {new int[]{2, 19, 4}, 0, false},
+                {new int[]{20, 2, 21}, 0, false},
+                {new int[]{20, 2, 21, 210}, 0, true},
+                {new int[]{2, 200, 2000}, 0, true},
+                {new int[]{0, 0}, 0, true},
+                {new int[]{1, 2, 3, 4, 5, 6}, 0, false},
+                {new int[]{1, 2, 3, 4, 5, 50, 6}, 0, true},
+                {new int[]{1, 2, 3, 4, 5, 51, 6}, 0, false},
+                {new int[]{1, 2, 3, 4, 4, 50, 500, 6}, 0, true},
+        };
+    }
+
+    @Test(dataProvider = "array220Data")
+    public void shouldCountArray220(int[] nums, int index, boolean exptdResult) {
+        assertEquals(recursion1.array220(nums, index), exptdResult);
+    }
 }
