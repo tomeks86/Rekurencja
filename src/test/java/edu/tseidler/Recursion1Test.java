@@ -540,4 +540,27 @@ public class Recursion1Test {
     public void shouldCountHiWithoutX(String input, int exptdCount) {
         assertEquals(recursion1.countHi2(input), exptdCount);
     }
+
+    @DataProvider
+    private static Object[][] parenBitData() {
+        return new Object[][]{
+                {"xyz(abc)123", "(abc)"},
+                {"x(hello)", "(hello)"},
+                {"(xy)1", "(xy)"},
+                {"not really (possible)", "(possible)"},
+                {"(abc)", "(abc)"},
+                {"(abc)xyz", "(abc)"},
+                {"(abc)x", "(abc)"},
+                {"(x)", "(x)"},
+                {"()", "()"},
+                {"res (ipsa) loquitor", "(ipsa)"},
+                {"hello(not really)there", "(not really)"},
+                {"ab(ab)ab", "(ab)"},
+        };
+    }
+
+    @Test(dataProvider = "parenBitData")
+    public void shouldFindBracketed(String input, String exptdOutput) {
+        assertEquals(recursion1.parenBit(input), exptdOutput);
+    }
 }

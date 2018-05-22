@@ -244,4 +244,14 @@ public class Recursion1 {
                 return 1 + countHi2(str.substring(0, hi));
         }
     }
+
+    public String parenBit(String str) {
+        if (str.length() == 0)
+            return null;
+        while (!str.endsWith(")"))
+            str = parenBit(str.substring(0, str.length() - 1));
+        while (!str.startsWith("("))
+            str = parenBit(str.substring(1, str.length()));
+        return str;
+    }
 }
