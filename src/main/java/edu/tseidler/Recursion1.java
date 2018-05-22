@@ -82,4 +82,18 @@ public class Recursion1 {
     public int countHi(String str) {
         return str.lastIndexOf("hi") > -1 ? 1 + countHi(str.substring(0, str.lastIndexOf("hi"))) : 0;
     }
+
+    public String changeXY(String str) {
+        return changeXY(str, str.length() - 1);
+    }
+
+    private String changeXY(String str, int index) {
+        if (index == -1)
+            return str;
+        else
+            return str.charAt(index) == 'x' ?
+                    changeXY(str.substring(0, index) + 'y' + str.substring(index + 1, str.length()), index - 1) :
+                    changeXY(str, index - 1);
+    }
+
 }

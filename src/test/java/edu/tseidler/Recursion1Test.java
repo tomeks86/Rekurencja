@@ -242,4 +242,25 @@ public class Recursion1Test {
     public void shouldComputeHi(String str, int exptd) {
         assertEquals(recursion1.countHi(str), exptd);
     }
+
+    @DataProvider
+    private static Object[][] changeXYData() {
+        return new Object[][] {
+                {"codex", "codey"},
+                {"xxhixx", "yyhiyy"},
+                {"xhixhix", "yhiyhiy"},
+                {"hiy", "hiy"},
+                {"h", "h"},
+                {"x", "y"},
+                {"", ""},
+                {"xxx", "yyy"},
+                {"yyhxyi", "yyhyyi"},
+                {"hihi", "hihi"},
+        };
+    }
+
+    @Test(dataProvider = "changeXYData")
+    public void shouldReplaceXY(String input, String exptdOutput) {
+        assertEquals(recursion1.changeXY(input), exptdOutput);
+    }
 }
